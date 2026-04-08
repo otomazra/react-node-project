@@ -1,0 +1,16 @@
+
+name: Docker Tests
+on: [push, pull_request]
+
+jobs:
+  test-suite:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout code
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+      - run: docker build -t otardocker/frontend -f Dockerfile.dev .
+
+      - name: Run the Tests
+      - run: docker run -it otardocker/frontend npm run test -- --coverage
