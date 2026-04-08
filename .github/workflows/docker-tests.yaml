@@ -13,4 +13,4 @@ jobs:
         run: docker build -t otardocker/frontend -f Dockerfile.dev .
 
       - name: Run the Tests
-        run: docker run -it otardocker/frontend npm run test -- --coverage
+        run: docker run otardocker/frontend npm run test -- --coverage
